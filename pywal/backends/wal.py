@@ -58,16 +58,26 @@ def adjust(colors, light):
     """Adjust the generated colors and store them in a dict that
        we will later save in json format."""
     raw_colors = colors[:1] + colors[8:16] + colors[8:-1]
+    """raw_colors = colors[::-1]"""
 
     # Manually adjust colors.
     if light:
         for color in raw_colors:
-            color = util.saturate_color(color, 0.5)
-
-        raw_colors[0] = util.lighten_color(colors[-1], 0.85)
-        raw_colors[7] = colors[0]
-        raw_colors[8] = util.darken_color(colors[-1], 0.4)
+            color = util.saturate_color(color, 0.9)
+        
+        darken=0.3
+        raw_colors[0] = util.lighten_color(colors[13], 0.5)
+        raw_colors[7] = util.darken_color(colors[7], darken)
+        raw_colors[8] = util.darken_color(colors[13], darken)
+        raw_colors[9] = util.darken_color(raw_colors[1], darken)
+        raw_colors[10] = util.darken_color(raw_colors[2], darken)
+        raw_colors[11] = util.darken_color(raw_colors[3], darken)
+        raw_colors[12] = util.darken_color(raw_colors[4], darken)
+        raw_colors[13] = util.darken_color(raw_colors[5], darken)
+        raw_colors[14] = util.darken_color(raw_colors[6], darken)
         raw_colors[15] = colors[0]
+        print(colors)
+        print(raw_colors)
 
     else:
         # Darken the background color slightly.
