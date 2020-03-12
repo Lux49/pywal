@@ -77,10 +77,12 @@ def adjust(colors, light):
         raw_colors[14] = util.saturate_color(raw_colors[6], darken)
         raw_colors[7] = colors[0]
         raw_colors[15] = util.saturate_color(colors[0], darken)"""
-        raw_colors[0] = util.lighten_color(colors[14], 0.5)
+        raw_colors[0] = util.lighten_color(colors[14], 0.6)
         raw_colors[7] = colors[0]
         raw_colors[8] = util.darken_color(colors[14], 0.4)
         raw_colors[15] = colors[0]
+        print(colors)
+        print(raw_colors)
 
         print(colors)
         print(raw_colors)
